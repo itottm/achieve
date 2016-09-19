@@ -11,4 +11,10 @@ class NoticeMailer < ApplicationMailer
     mail to: "rhcp2106@fork.ocn.ne.jp",
          subject: '【Achieve】ブログが投稿されました'
   end
+  def sendmail_contact (contact)
+    @contact = contact
+
+    mail to: user.email,
+         subject: '【Achieve】問い合わせを受け付けました'
+  end
 end
