@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :tasks
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: {
       registrations: "users/registrations",
@@ -19,7 +20,19 @@ Rails.application.routes.draw do
       post :confirm
     end
   end
-  
+
+  resources :users, only: [:index, :show, :edit, :update] do
+    resources :tasks
+    resources :submit_requests , shallow: true do
+      get 'approve'
+      get 'unapprove'
+      get 'reject'
+      collection do
+        get 'inbox'
+      end
+    end
+  end
+
   root 'top#index'
 
   if Rails.env.development?
