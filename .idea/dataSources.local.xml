@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="PostgreSQL - postgres@localhost" uuid="d07b095b-475e-45eb-98af-f56492d0135d">
+    <data-source name="Rails achieve: development" uuid="b1d0004d-7310-464d-b01a-9e4a439a2292">
       <database-info product="PostgreSQL" version="9.5.4" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
-      <secret-storage>master_key</secret-storage>
-      <resolve-scope>postgres:public</resolve-scope>
+      <resolve-scope>achieve_development:public</resolve-scope>
+    </data-source>
+    <data-source name="Rails achieve: test" uuid="b1d5ad81-81f8-4d41-8a63-564f51b69afd">
+      <database-info product="PostgreSQL" version="9.5.4" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <resolve-scope>achieve_test:public</resolve-scope>
     </data-source>
   </component>
 </project>
