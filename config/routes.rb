@@ -4,12 +4,13 @@ Rails.application.routes.draw do
 
   get 'relationships/destroy'
 
+  resources :tasks
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: {
       registrations: 'users/registrations',
       omniauth_callbacks: 'users/omniauth_callbacks'
   }
-  
+
   resources :blogs do
     resources :comments
 
@@ -17,23 +18,34 @@ Rails.application.routes.draw do
       post :confirm
     end
   end
-  
+
   resources :contacts, only: [:new, :create] do
     collection do
       post :confirm
     end
   end
 
-  resources :users, only: [:index, :show]
 
   resources :relationships, only: [:create, :destroy]
-  
+
+  resources :users, only: [:index, :show, :edit, :update] do
+    resources :tasks
+    resources :submit_requests, shallow: true do
+      get 'approve'
+      get 'unapprove'
+      get 'reject'
+      collection do
+        get 'inbox'
+      end
+    end
+  end
+
   root 'top#index'
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: '/letter_opener'
   end
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
