@@ -7,9 +7,10 @@
     <%= link_to "ブログを作成する", new_blog_path, class: 'btn btn-default' %>
     <% @blogs.each do |blog| %>
         <div class="row">
-          <%= link_to blog_path(blog) do %>
-              <h4><strong><%= blog.title %></strong></h4>
+          <h4><%= link_to blog_path(blog) do %>
+              <strong><%= blog.title %></strong>
           <% end %>
+          </h4>
           <p><%= blog.content %></p>
           <p>〈投稿者〉id：<%= blog.user_id %>、 <%= blog.user.name %><br>
             <% unless blog.user.image_url.blank? %>
@@ -24,6 +25,7 @@
         </div>
     <% end %>
 
+    <%= paginate @blogs %>
   </div>
 </div>
 

@@ -5,9 +5,12 @@
         <%= profile_img(user) %>
         <p><%= link_to user.name, user_path(user) %></p>
         <p><%= user.email %></p>
-
         <% unless user.id === current_user.id %>
-          <p><%= render 'follow_form', user: user %></p>
+            <div class="item">
+              <%= link_to user.name, user %>
+              <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post' %>
+            </div>
+          <p><%= render partial: 'follow_form', locals: { user: user } if signed_in?  %></p>
         <% end %>
       </div>
   <% end %>

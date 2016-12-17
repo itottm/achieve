@@ -50,6 +50,7 @@ gem 'rails_12factor', group: :production
 group :development do
   gem 'letter_opener_web'
   gem 'dotenv-rails'
+  gem 'erd'
 end
 
 gem 'twitter-bootstrap-rails'
@@ -65,3 +66,7 @@ gem 'omniauth-facebook'
 
 gem 'carrierwave'
 gem 'rmagick'
+
+gem 'pusher'
+
+gem 'kaminari'
