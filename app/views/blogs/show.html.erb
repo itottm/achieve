@@ -7,7 +7,11 @@
       <p class="left"><strong>内容</strong></p>
       <p class="left"><%= @blog.content %></p>
       <p class="right">
-        <strong>作成時間:</strong>
+        <b>投稿者:</b>
+        <%= @blog.user.name %>
+      </p>
+      <p class="right">
+        <b>作成時間:</b>
         <%= @blog.created_at.strftime('%y/%m/%d %p %l:%M') %>
       </p>
     </div>
