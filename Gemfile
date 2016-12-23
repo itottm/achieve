@@ -70,3 +70,5 @@ gem 'rmagick'
 gem 'pusher'
 
 gem 'kaminari'
+
+gem 'fog'
